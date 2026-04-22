@@ -53,7 +53,7 @@ Output → research_paper.md
 
 1. **Clone repository**
 ```bash
-git clone https://github.com/yourusername/autoresearch-lab.git
+git clone https://github.com/vikashmehta292511/autoresearch-lab.git
 cd autoresearch-lab
 ```
 
