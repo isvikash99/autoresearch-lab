@@ -31,7 +31,7 @@ class PaperWriterAgent:
                 try:
                     genai.configure(api_key=api_key)
                     self.ai_model = genai.GenerativeModel('gemini-2.5-flash')
-                    self.logger.info("✓ Gemini AI enabled")
+                    self.logger.info("Gemini AI enabled")
                 except Exception as e:
                     self.logger.error(f"Gemini setup failed: {e}")
     
@@ -73,7 +73,7 @@ class PaperWriterAgent:
                 "generated_at": datetime.now().isoformat()
             }
             
-            self.logger.info(f"✓ Paper generated: {word_count} words")
+            self.logger.info(f"Paper generated: {word_count} words")
             return result
             
         except Exception as e:

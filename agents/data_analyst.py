@@ -62,5 +62,5 @@ class DataAnalysisAgent:
             ) + " evidence to reject null hypothesis"
         }
         
-        self.logger.info(f"✓ Analysis complete: {significance}")
+        self.logger.info(f"Analysis complete: {significance}")
         return result

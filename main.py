@@ -38,7 +38,7 @@ class AutoResearchLab:
         self.data_analyst = DataAnalysisAgent(self.memory)
         self.paper_writer = PaperWriterAgent(self.memory)
         
-        self.logger.info("✓ All agents initialized")
+        self.logger.info("All agents initialized")
     
     async def run_research_pipeline(self, research_domain: str) -> dict:
         """
@@ -60,31 +60,31 @@ class AutoResearchLab:
             print("[1/5]  Identifying research problem (web scraping)...")
             problem_output = await self.problem_finder.identify_problem(research_domain)
             self.memory.store("research_problem", problem_output)
-            print(f"✓ Problem: {problem_output['problem_statement'][:80]}...")
+            print(f"Problem: {problem_output['problem_statement'][:80]}...")
             
             # Phase 2: Hypothesis Generation
             print("\n[2/5]  Generating hypothesis...")
             hypothesis_output = await self.hypothesis_agent.generate_hypothesis(problem_output)
             self.memory.store("hypothesis", hypothesis_output)
-            print(f"✓ Hypothesis: {hypothesis_output['hypothesis'][:80]}...")
+            print(f"Hypothesis: {hypothesis_output['hypothesis'][:80]}...")
             
             # Phase 3: Experiment Design
             print("\n[3/5]  Designing experiment...")
             experiment_output = await self.experiment_designer.design_experiment(hypothesis_output)
             self.memory.store("experiment_design", experiment_output)
-            print(f"✓ Design: {experiment_output['experiment_type']}")
+            print(f"Design: {experiment_output['experiment_type']}")
             
             # Phase 4: Data Analysis (simulated)
             print("\n[4/5]  Performing analysis...")
             analysis_output = await self.data_analyst.analyze_experiment(experiment_output)
             self.memory.store("analysis", analysis_output)
-            print(f"✓ Analysis complete")
+            print(f"Analysis complete")
             
             # Phase 5: Paper Writing (Gemini 3000 words)
             print("\n[5/5]  Writing research paper (2500-3000 words with Gemini)...")
             paper_output = await self.paper_writer.write_paper(self.memory.get_all())
             self.memory.store("paper", paper_output)
-            print(f"✓ Paper generated: {paper_output['word_count']} words")
+            print(f"Paper generated: {paper_output['word_count']} words")
             
             # Compile results
             final_output = self._compile_results()
@@ -93,7 +93,7 @@ class AutoResearchLab:
             await self._save_outputs(final_output)
             
             print(f"\n{'='*80}")
-            print("✓ RESEARCH PIPELINE COMPLETED SUCCESSFULLY!")
+            print("RESEARCH PIPELINE COMPLETED SUCCESSFULLY!")
             print('='*80)
             
             return final_output
@@ -131,7 +131,7 @@ class AutoResearchLab:
         paper_path = run_dir / "research_paper.md"
         with open(paper_path, 'w', encoding='utf-8') as f:
             f.write(final_output['paper']['content'])
-        print(f"✓ Paper saved: {paper_path}")
+        print(f"Paper saved: {paper_path}")
         
         # Save metadata
         metadata = {
@@ -146,15 +146,15 @@ class AutoResearchLab:
         metadata_path = run_dir / "metadata.json"
         with open(metadata_path, 'w', encoding='utf-8') as f:
             json.dump(metadata, f, indent=2)
-        print(f"✓ Metadata saved: {metadata_path}")
+        print(f"Metadata saved: {metadata_path}")
         
         # Save pipeline history
         history_path = run_dir / "pipeline_history.json"
         with open(history_path, 'w', encoding='utf-8') as f:
             json.dump(final_output, f, indent=2, default=str)
-        print(f"✓ Pipeline history saved: {history_path}")
+        print(f"Pipeline history saved: {history_path}")
         
-        print(f"\n✓ All outputs saved to: {run_dir}")
+        print(f"\nAll outputs saved to: {run_dir}")
 
 
 async def main():
@@ -184,7 +184,7 @@ async def main():
         print(f"   Words: {result['paper']['word_count']}")
         print(f"   Papers Scraped: {result['research_problem'].get('papers_found', 0)}")
         print(f"   AI Model: {result['paper'].get('ai_model', 'gemini-1.5-flash')}")
-        print(f"\n✓ Check output/ folder for complete results!")
+        print(f"\nCheck output/ folder for complete results!")
         
     except Exception as e:
         print(f"\n Pipeline failed: {str(e)}")

@@ -68,7 +68,7 @@ class ExperimentDesignerAgent:
             "designed_at": datetime.now().isoformat()
         }
         
-        self.logger.info(f"✓ Experiment designed: {design['sample_size']} samples")
+        self.logger.info(f"Experiment designed: {design['sample_size']} samples")
         return result
     
     async def _create_design(self, hypothesis_type: str, variables: Dict) -> Dict:

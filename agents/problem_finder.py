@@ -46,7 +46,7 @@ class ProblemFinderAgent:
             papers = await self._fetch_arxiv_papers(research_domain)
         
         if papers:
-            self.logger.info(f"✓ Found {len(papers)} papers from arXiv")
+            self.logger.info(f"Found {len(papers)} papers from arXiv")
             problem = await self._analyze_literature(papers, research_domain)
         else:
             self.logger.info("No papers found, using intelligent generation")
