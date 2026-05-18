@@ -1,0 +1,9 @@
+{
+  "timestamp": "20260518_115530",
+  "domain": "nuclear risk",
+  "problem": "How can we advance nuclear risk through novel approaches addressing limitations in current consistency?",
+  "hypothesis": "Modifying consistency will lead to measurable changes in selection, demonstrating a causal relationship in nuclear risk",
+  "word_count": 4547,
+  "ai_model": "gemini-1.5-flash",
+  "papers_found": 10
+}
